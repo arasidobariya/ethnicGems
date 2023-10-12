@@ -23,6 +23,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -62,12 +63,16 @@ function Header() {
           {!isSmallScreen && (
             <Grid container spacing={1}>
               <Grid item md={2.5}>
-                <Typography variant="h5">Ethnic Gems</Typography>
+                <Link to="/">
+                  <Typography variant="h5">Ethnic Gems</Typography>
+                </Link>
               </Grid>
               <Grid item md={1.25}>
-                <Typography variant="body1" textalign={"center"} mt={0.7}>
-                  Home
-                </Typography>
+                <Link to="/">
+                  <Typography variant="body1" textalign={"center"} mt={0.7}>
+                    Home
+                  </Typography>
+                </Link>
               </Grid>
               <Grid item md={1.25}>
                 <Typography variant="body1" textalign={"center"} mt={0.7}>
@@ -98,7 +103,9 @@ function Header() {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h5">Ethnic Gems</Typography>
+              <Link to="/">
+                <Typography variant="h5">Ethnic Gems</Typography>
+              </Link>
             </>
           )}
         </Toolbar>
