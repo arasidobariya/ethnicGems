@@ -8,7 +8,7 @@ import InputBase from "@mui/material/InputBase";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Badge, IconButton } from "@mui/material";
+import { Badge, IconButton, autocompleteClasses } from "@mui/material";
 
 function Header() {
   const Search = styled("div")(({ theme }) => ({
@@ -63,55 +63,40 @@ function Header() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            Ethnic Gems
-          </Typography>
-
-          <Typography
-            variant="body1"
-            component="div"
-            noWrap
-            sx={{ flexGrow: 0.5, display: { xs: "none", sm: "block" } }}
-          >
-            Dresses
-          </Typography>
-
-          <Typography
-            variant="body1"
-            noWrap
-            textAlign="center"
-            justifyContent="center"
-            component="div"
-            sx={{ flexGrow: 0.5, display: { xs: "none", sm: "block" } }}
-          >
-            Jewellery
-          </Typography>
-
-          <Search sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-
-          <IconButton
-            size="large"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            <Badge>
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
+          <Grid container spacing={1}>
+            <Grid item xs={12} md={2.5}>
+              <Typography variant="h5" textAlign={"center"}>
+                Ethnic Gems
+              </Typography>
+            </Grid>
+            <Grid item xs={6} md={1.5}>
+              <Typography variant="body1" textAlign={"center"} mt={0.7}>
+                Dresses
+              </Typography>
+            </Grid>
+            <Grid item xs={6} md={1.5}>
+              <Typography variant="body1" textAlign={"center"} mt={0.7}>
+                Jewellery
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={3.5}>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
+            </Grid>
+            <Grid item xs={6} md={2}></Grid>
+            <Grid item xs={6} md={1} mt={0.7}>
+              <ShoppingCartIcon size="large" textAlign={"center"} />
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
     </ThemeProvider>
