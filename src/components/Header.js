@@ -45,7 +45,10 @@ const darkTheme = createTheme({
 function Header() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery("(max-width:900px)");
-  const items = ["Home", "Dresses", "Jwellery"];
+  const category = [
+    { id: "c1", title: "Dresses", path: "/productList/:{id}" },
+    { id: "c2", title: "Jewellery", path: "/productList/:{id}" },
+  ];
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -66,29 +69,18 @@ function Header() {
                   <Typography variant="h5">Ethnic Gems</Typography>
                 </StyledNavLink>
               </Grid>
-              <Grid item md={1.25}>
-                <StyledNavLink
-                  to="/"
-                  style={({ isActive }) => ({
-                    fontWeight: isActive ? "bold" : "inherit",
-                  })}
-                >
-                  <Typography variant="body1" textalign={"center"} mt={0.7}>
-                    Home
-                  </Typography>
-                </StyledNavLink>
-              </Grid>
-              <Grid item md={1.25}>
-                <Typography variant="body1" textalign={"center"} mt={0.7}>
-                  Dresses
-                </Typography>
-              </Grid>
 
-              <Grid item md={1.25}>
-                <Typography variant="body1" textalign={"center"} mt={0.7}>
-                  Jewellery
-                </Typography>
-              </Grid>
+              {category &&
+                category.map((item) => (
+                  <Grid item md={1.25} key={item.id}>
+                    <StyledNavLink to={item.path}>
+                      <Typography variant="body1" textalign={"center"} mt={0.7}>
+                        {item.title}
+                      </Typography>
+                    </StyledNavLink>
+                  </Grid>
+                ))}
+
               <Grid item md={4}></Grid>
               <Grid item md={1} mt={0.7}>
                 <ShoppingCartIcon size="large" textalign={"center"} />
@@ -126,10 +118,10 @@ function Header() {
         </DrawerHeader>
         <Divider />
         <List>
-          {items &&
-            items.map((item, index) => (
+          {category &&
+            category.map((item, index) => (
               <ListItem key={index}>
-                <ListItemText primary={item} />
+                <ListItemText primary={item.title} />
               </ListItem>
             ))}
         </List>
