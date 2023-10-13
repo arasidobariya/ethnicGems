@@ -121,7 +121,9 @@ function Header() {
           {category &&
             category.map((item, index) => (
               <ListItem key={index}>
-                <ListItemText primary={item.title} />
+                <StyledNavLink to={item.path}>
+                  <ListItemText primary={item.title} />
+                </StyledNavLink>
               </ListItem>
             ))}
         </List>
