@@ -23,7 +23,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import StyledNavLink from "../Styles/NavLink";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -34,16 +34,15 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-function Header() {
-  const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-      primary: {
-        main: "#1976d2",
-      },
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#1976d2",
     },
-  });
-
+  },
+});
+function Header() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery("(max-width:900px)");
   const items = ["Home", "Dresses", "Jwellery"];
@@ -63,16 +62,21 @@ function Header() {
           {!isSmallScreen && (
             <Grid container spacing={1}>
               <Grid item md={2.5}>
-                <Link to="/">
+                <StyledNavLink to="/">
                   <Typography variant="h5">Ethnic Gems</Typography>
-                </Link>
+                </StyledNavLink>
               </Grid>
               <Grid item md={1.25}>
-                <Link to="/">
+                <StyledNavLink
+                  to="/"
+                  style={({ isActive }) => ({
+                    fontWeight: isActive ? "bold" : "inherit",
+                  })}
+                >
                   <Typography variant="body1" textalign={"center"} mt={0.7}>
                     Home
                   </Typography>
-                </Link>
+                </StyledNavLink>
               </Grid>
               <Grid item md={1.25}>
                 <Typography variant="body1" textalign={"center"} mt={0.7}>
@@ -103,9 +107,9 @@ function Header() {
               >
                 <MenuIcon />
               </IconButton>
-              <Link to="/">
+              <StyledNavLink to="/">
                 <Typography variant="h5">Ethnic Gems</Typography>
-              </Link>
+              </StyledNavLink>
             </>
           )}
         </Toolbar>
