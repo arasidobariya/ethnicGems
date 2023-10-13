@@ -1,5 +1,5 @@
 import { Card, Box, CardContent, Typography, CardMedia } from "@mui/material";
-import DarkButton from "../Styles/darkButton";
+import DarkButton from "../Styles/DarkButton";
 
 function Home() {
   return (
@@ -30,7 +30,7 @@ function Home() {
               "Explore your true style with this Ethnic Dress"
             </Typography>
           </CardContent>
-          <DarkButton variant="contained">Shop now</DarkButton>
+          <DarkButton>Shop now</DarkButton>
         </Box>
         <Box sx={{ flex: 1.1 }}>
           <CardMedia
