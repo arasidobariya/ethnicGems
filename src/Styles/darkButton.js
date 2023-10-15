@@ -1,16 +1,20 @@
-import styled from "styled-components";
 import { Button } from "@mui/material";
 
-const DarkStyledButton = styled(Button)`
-  background-color: #333; /* Dark background color */
-  color: white; /* Text color */
-  &:hover {
-    background-color: #555; /* Darker color on hover */
-  }
-`;
-
 function DarkButton({ children, ...props }) {
-  return <DarkStyledButton {...props}>{children}</DarkStyledButton>;
-}
+  const darkButtonStyle = {
+    background: "#333", // Dark background color
+    color: "white", // Text color
+  };
 
+  return (
+    <Button
+      variant="contained"
+      color="primary" // Set the color to primary
+      style={darkButtonStyle}
+      {...props}
+    >
+      {children}
+    </Button>
+  );
+}
 export default DarkButton;

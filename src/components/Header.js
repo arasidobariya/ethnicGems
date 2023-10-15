@@ -69,21 +69,21 @@ function Header() {
                   <Typography variant="h5">Ethnic Gems</Typography>
                 </StyledNavLink>
               </Grid>
+              <Grid item container md={9}>
+                {category &&
+                  category.map((item) => (
+                    <Grid item md={1.25} key={item.id}>
+                      <StyledNavLink to={item.path}>
+                        <Typography variant="body1" mt={0.7}>
+                          {item.title}
+                        </Typography>
+                      </StyledNavLink>
+                    </Grid>
+                  ))}
+              </Grid>
 
-              {category &&
-                category.map((item) => (
-                  <Grid item md={1.25} key={item.id}>
-                    <StyledNavLink to={item.path}>
-                      <Typography variant="body1" textalign={"center"} mt={0.7}>
-                        {item.title}
-                      </Typography>
-                    </StyledNavLink>
-                  </Grid>
-                ))}
-
-              <Grid item md={4}></Grid>
-              <Grid item md={1} mt={0.7}>
-                <ShoppingCartIcon size="large" textalign={"center"} />
+              <Grid item md={0.5} mt={0.7}>
+                <ShoppingCartIcon size="large" />
               </Grid>
             </Grid>
           )}
