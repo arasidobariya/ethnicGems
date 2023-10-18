@@ -5,11 +5,39 @@ import {
   Typography,
   CardMedia,
   Grid,
+  Paper,
 } from "@mui/material";
 import DarkButton from "../Styles/darkButton";
+import { Link } from "react-router-dom";
 function Home() {
+  const dresses = [
+    {
+      id: 1,
+      src: "./image/Banner Girl.jpg",
+      title: "Blue Dress",
+      description: "Made with Pure Silk",
+    },
+    {
+      id: 2,
+      src: "./image/Banner Girl.jpg",
+      title: "Green Dress",
+      description: "Made with Pure Cotton",
+    },
+    {
+      id: 3,
+      src: "./image/Banner Girl.jpg",
+      title: "Pista Dress",
+      description: "Semi-Silk Fabric",
+    },
+    {
+      id: 4,
+      src: "./image/Banner Girl.jpg",
+      title: "Pista Dress",
+      description: "Made with Pure Silk",
+    },
+  ];
   return (
-    <div>
+    <Box sx={{ margin: 5 }}>
       <Card
         sx={{
           display: "flex",
@@ -43,17 +71,63 @@ function Home() {
           <Grid item xs={12} md={6}>
             <CardMedia
               component="img"
-
-              
-              height="400"
+              style={{ maxHeight: "450px" }}
               image="./image/Banner Girl.jpg"
               alt="Ethnic Dress"
             />
           </Grid>
         </Grid>
       </Card>
-      
-    </div>
+      <Grid container>
+        <Grid item xs={6} md={8}>
+          <Typography variant="h5" textAlign={"left"} sx={{ ml: 5 }}>
+            Ethnic Dresses
+          </Typography>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <Link to="/">
+            <Typography
+              variant="body1"
+              textAlign={"right"}
+              alignItems="center"
+              sx={{ mr: 10 }}
+            >
+              Show All
+            </Typography>
+          </Link>
+        </Grid>
+      </Grid>
+      <Box sx={{ margin: 5 }}>
+        <Grid container spacing={5}>
+          {dresses.map((dress) => {
+            return (
+              <Grid
+                item
+                container
+                direction="column"
+                xs={12}
+                sm={6}
+                md={4}
+                key={dress.id}
+                spacing={3}
+                justifyContent={"center"}
+                alignItems={"center"}
+              >
+                <Paper variant="outlined" sx={{ maxWidth: "400px" }}>
+                  <Grid item>
+                    <img height="250px" alt={dress.title} src={dress.src}></img>
+                  </Grid>
+                  <Grid item sx={{ margin: 2 }}>
+                    <Typography variant="h5">{dress.title}</Typography>
+                    <Typography variant="body2">{dress.description}</Typography>
+                  </Grid>
+                </Paper>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Box>
+    </Box>
   );
 }
 
