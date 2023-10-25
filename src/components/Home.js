@@ -173,7 +173,7 @@ function Home() {
                   );
                 })}
               </Grid>
-            </Box>{" "}
+            </Box>
           </Box>
         );
       })}
