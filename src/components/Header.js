@@ -1,119 +1,133 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Grid from "@mui/material/Grid";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
+import {
+  AppBar,
+  Grid,
+  Toolbar,
+  Typography,
+  Drawer,
+  ListItemText,
+  List,
+  ListItem,
+  IconButton,
+  Divider,
+  useMediaQuery,
+} from "@mui/material";
+import {
+  ThemeProvider,
+  createTheme,
+  styled,
+  useTheme,
+} from "@mui/material/styles";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import SearchIcon from "@mui/icons-material/Search";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Badge, IconButton } from "@mui/material";
+import { useState } from "react";
+import StyledNavLink from "../Styles/NavLink";
 
+const DrawerHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: "flex-end",
+}));
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#1976d2",
+    },
+  },
+});
 function Header() {
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  }));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery("(max-width:900px)");
+  const category = [
+    { id: "c1", title: "Dresses", path: "/productList/:{id}" },
+    { id: "c2", title: "Jewellery", path: "/productList/:{id}" },
+  ];
+  const [open, setOpen] = useState(false);
 
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }));
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("sm")]: {
-        width: "12ch",
-        "&:focus": {
-          width: "20ch",
-        },
-      },
-    },
-  }));
-  const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-      primary: {
-        main: "#1976d2",
-      },
-    },
-  });
-
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            Ethnic Gems
-          </Typography>
+          {!isSmallScreen && (
+            <Grid container spacing={1}>
+              <Grid item md={2.5}>
+                <StyledNavLink to="/">
+                  <Typography variant="h5">Ethnic Gems</Typography>
+                </StyledNavLink>
+              </Grid>
+              <Grid item container md={9}>
+                {category &&
+                  category.map((item) => (
+                    <Grid item md={1.25} key={item.id}>
+                      <StyledNavLink to={item.path}>
+                        <Typography variant="body1" mt={0.7}>
+                          {item.title}
+                        </Typography>
+                      </StyledNavLink>
+                    </Grid>
+                  ))}
+              </Grid>
 
-          <Typography
-            variant="body1"
-            component="div"
-            noWrap
-            sx={{ flexGrow: 0.5, display: { xs: "none", sm: "block" } }}
-          >
-            Dresses
-          </Typography>
+              <Grid item md={0.5} mt={0.7}>
+                <ShoppingCartIcon size="large" />
+              </Grid>
+            </Grid>
+          )}
 
-          <Typography
-            variant="body1"
-            noWrap
-            textAlign="center"
-            justifyContent="center"
-            component="div"
-            sx={{ flexGrow: 0.5, display: { xs: "none", sm: "block" } }}
-          >
-            Jewellery
-          </Typography>
-
-          <Search sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-
-          <IconButton
-            size="large"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            <Badge>
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
+          {isSmallScreen && (
+            <>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                sx={{ mr: 2, ...(open && { display: "none" }) }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <StyledNavLink to="/">
+                <Typography variant="h5">Ethnic Gems</Typography>
+              </StyledNavLink>
+            </>
+          )}
         </Toolbar>
       </AppBar>
+      <Drawer variant="persistent" anchor="left" open={open}>
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List>
+          {category &&
+            category.map((item, index) => (
+              <ListItem key={index}>
+                <StyledNavLink to={item.path}>
+                  <ListItemText primary={item.title} />
+                </StyledNavLink>
+              </ListItem>
+            ))}
+        </List>
+      </Drawer>
     </ThemeProvider>
   );
 }
