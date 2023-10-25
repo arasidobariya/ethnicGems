@@ -1,2 +1,5 @@
-function ProductDetail() {}
+function ProductDetail() {
+
+    
+}
 export default ProductDetail;
