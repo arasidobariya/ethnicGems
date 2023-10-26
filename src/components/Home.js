@@ -148,9 +148,9 @@ function Home() {
                       direction="column"
                       xs={12}
                       sm={6}
-                      md={4}
+                      md={3}
                       key={item.id}
-                      spacing={3}
+                      spacing={1}
                       justifyContent={"center"}
                       alignItems={"center"}
                     >
@@ -158,6 +158,7 @@ function Home() {
                         <Grid item>
                           <img
                             height="200px"
+                            width="200px"
                             alt={item.title}
                             src={item.src}
                           ></img>

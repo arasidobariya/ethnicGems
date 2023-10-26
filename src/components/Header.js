@@ -46,8 +46,8 @@ function Header() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery("(max-width:900px)");
   const category = [
-    { id: "c1", title: "Dresses", path: "/productList/:{id}" },
-    { id: "c2", title: "Jewellery", path: "/productList/:{id}" },
+    { id: "c1", title: "Dresses", path: "/productList" },
+    { id: "c2", title: "Jewellery", path: "/productList" },
   ];
   const [open, setOpen] = useState(false);
 
@@ -99,9 +99,16 @@ function Header() {
               >
                 <MenuIcon />
               </IconButton>
-              <StyledNavLink to="/">
-                <Typography variant="h5">Ethnic Gems</Typography>
-              </StyledNavLink>
+              <Grid container>
+                <Grid item xs={11.5}>
+                  <StyledNavLink to="/">
+                    <Typography variant="h5">Ethnic Gems</Typography>
+                  </StyledNavLink>{" "}
+                </Grid>
+                <Grid item xs={0.5} mt={0.7}>
+                  <ShoppingCartIcon size="large" />
+                </Grid>
+              </Grid>
             </>
           )}
         </Toolbar>
