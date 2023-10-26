@@ -44,6 +44,48 @@ function ProductList() {
       title: "Blue Dress",
       description: "Made with Pure Silk",
     },
+    {
+      id: Math.random.toString(),
+      category: "Jewellery",
+      src: "./image/Banner Girl.jpg",
+      title: "Blue Dress",
+      description: "Made with Pure Silk",
+    },
+    {
+      id: Math.random.toString(),
+      category: "Jewellery",
+      src: "./image/Banner Girl.jpg",
+      title: "Blue Dress",
+      description: "Made with Pure Silk",
+    },
+    {
+      id: Math.random.toString(),
+      category: "Jewellery",
+      src: "./image/Banner Girl.jpg",
+      title: "Blue Dress",
+      description: "Made with Pure Silk",
+    },
+    {
+      id: Math.random.toString(),
+      category: "Jewellery",
+      src: "./image/Banner Girl.jpg",
+      title: "Blue Dress",
+      description: "Made with Pure Silk",
+    },
+    {
+      id: Math.random.toString(),
+      category: "Jewellery",
+      src: "./image/Banner Girl.jpg",
+      title: "Blue Dress",
+      description: "Made with Pure Silk",
+    },
+    {
+      id: Math.random.toString(),
+      category: "Jewellery",
+      src: "./image/Banner Girl.jpg",
+      title: "Blue Dress",
+      description: "Made with Pure Silk",
+    },
   ];
 
   return (
