@@ -1,7 +1,15 @@
 import { Grid, Box, Paper, Typography } from "@mui/material";
-import DarkButton from "../Styles/darkButton";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  typo: {
+    flexGrow: 1,
+    textAlign: "center",
+  },
+}));
 
 function ProductList() {
+  const classes = useStyles();
   const items = [
     {
       id: Math.random.toString(),
@@ -66,14 +74,33 @@ function ProductList() {
             >
               <Paper variant="outlined" sx={{ maxWidth: "500px" }}>
                 <Grid item>
-                  <img height="200px" width="200px" alt={item.title} src={item.src}></img>
+                  <img
+                    height="200px"
+                    width="200px"
+                    alt={item.title}
+                    src={item.src}
+                  ></img>
                 </Grid>
                 <Grid item sx={{ margin: 2 }}>
                   <Typography variant="h5">{item.title}</Typography>
                   <Typography variant="body2">{item.description}</Typography>
                 </Grid>
+
+                <Typography
+                  className={classes.typo}
+                  sx={{
+                    height: "2.5rem",
+                    color: "white",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    alignItem: "center",
+                    backgroundColor: "black",
+                    flexGrow: 1,
+                  }}
+                >
+                  Add to Cart
+                </Typography>
               </Paper>
-              <DarkButton>Add to Cart</DarkButton>
             </Grid>
           );
         })}
