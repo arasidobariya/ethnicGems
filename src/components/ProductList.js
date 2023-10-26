@@ -1,15 +1,6 @@
 import { Grid, Box, Paper, Typography } from "@mui/material";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  typo: {
-    flexGrow: 1,
-    textAlign: "center",
-  },
-}));
 
 function ProductList() {
-  const classes = useStyles();
   const items = [
     {
       id: Math.random.toString(),
@@ -87,15 +78,13 @@ function ProductList() {
                 </Grid>
 
                 <Typography
-                  className={classes.typo}
                   sx={{
-                    height: "2.5rem",
                     color: "white",
                     justifyContent: "center",
                     textAlign: "center",
                     alignItem: "center",
                     backgroundColor: "black",
-                    flexGrow: 1,
+                    padding: "0.5rem",
                   }}
                 >
                   Add to Cart
