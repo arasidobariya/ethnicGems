@@ -46,8 +46,8 @@ function Header() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery("(max-width:900px)");
   const category = [
-    { id: "c1", title: "Dresses", path: "/productList" },
-    { id: "c2", title: "Jewellery", path: "/productList" },
+    { id: "c1", title: "Dresses", path: "/products/dress" },
+    { id: "c2", title: "Jewellery", path: "/products/j" },
   ];
   const [open, setOpen] = useState(false);
 
