@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import DarkButton from "../Styles/darkButton";
 import { Link } from "react-router-dom";
+import StyledNavLink from "../Styles/NavLink";
 function Home() {
   const products = [
     {
@@ -98,13 +99,15 @@ function Home() {
                 component="div"
                 variant="h5"
                 textAlign={"center"}
-                sx={{ fontFamily: "Lato" }}
+                sx={{ fontFamily: "sans-serif" }}
               >
                 "Explore your true style with this Ethnic Dress"
               </Typography>
             </CardContent>
             <Box sx={{ textAlign: "center", mt: 2, p: 1 }}>
-              <DarkButton variant="contained">Shop now</DarkButton>
+              <DarkButton variant="contained">
+                <StyledNavLink to="/products/dresses">Shop now </StyledNavLink>
+              </DarkButton>
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>

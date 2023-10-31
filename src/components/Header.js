@@ -66,7 +66,9 @@ function Header() {
             <Grid container spacing={1}>
               <Grid item md={2.5}>
                 <StyledNavLink to="/">
-                  <Typography variant="h5">Ethnic Gems</Typography>
+                  <Typography variant="h5" sx={{ fontFamily: "Roboto" }}>
+                    Ethnic Gems
+                  </Typography>
                 </StyledNavLink>
               </Grid>
               <Grid item container md={9}>
