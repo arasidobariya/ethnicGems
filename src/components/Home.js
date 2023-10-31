@@ -14,6 +14,7 @@ function Home() {
     {
       id: "p1",
       category: "Ethnic Dresses",
+      path: "/products/dresses",
       items: [
         {
           id: 1,
@@ -44,6 +45,7 @@ function Home() {
     {
       id: "p2",
       category: "Ethnic Jewellery",
+      path: "/products/Jewellery",
       items: [
         {
           id: 1,
@@ -126,7 +128,7 @@ function Home() {
                 </Typography>
               </Grid>
               <Grid item xs={6} md={4}>
-                <Link to="/">
+                <Link to={product.path}>
                   <Typography
                     variant="body1"
                     textAlign={"right"}
