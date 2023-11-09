@@ -1,95 +1,12 @@
 import { Grid, Box, Paper, Typography } from "@mui/material";
 import { useParams } from "react-router";
+import { productDataActions } from "../Store/ProductData";
+import { useDispatch, useSelector } from "react-redux";
 
 function ProductList() {
   const param = useParams();
-
-  const items = [
-    {
-      id: 1,
-      category: "dresses",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 2,
-      category: "dresses",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 3,
-      category: "dresses",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 4,
-      category: "dresses",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 5,
-      category: "dresses",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 6,
-      category: "dresses",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 7,
-      category: "Jewellery",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 8,
-      category: "Jewellery",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 9,
-      category: "Jewellery",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 10,
-      category: "Jewellery",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 11,
-      category: "Jewellery",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-    {
-      id: 12,
-      category: "Jewellery",
-      src: "./image/Banner Girl.jpg",
-      title: "Blue Dress",
-      description: "Made with Pure Silk",
-    },
-  ];
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.ProductList.items);
 
   return (
     <Box sx={{ margin: 5 }}>

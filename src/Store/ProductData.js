@@ -1,3 +1,4 @@
+import { Store } from "@mui/icons-material";
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 const items = [
   {
@@ -124,10 +125,10 @@ const productDataSlice = createSlice({
   },
 });
 
-const ProductData = configureStore({
+const store = configureStore({
   reducer: productDataSlice.reducer,
 });
 
 export const productDataActions = productDataSlice.actions;
 
-export default ProductData();
+export default store();
