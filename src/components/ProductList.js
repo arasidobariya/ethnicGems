@@ -1,6 +1,6 @@
 import { Grid, Box, Paper, Typography } from "@mui/material";
 import { useParams } from "react-router";
-import { productDataActions } from "../Store/ProductData";
+import { productDataActions } from "../Store/store";
 import { useDispatch, useSelector } from "react-redux";
 
 function ProductList() {
