@@ -3,7 +3,7 @@ const items = [
   {
     id: 1,
     category: "dresses",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/dress1.jpg",
     title: "Blue Dress",
     price: "$100",
     description:
@@ -12,7 +12,7 @@ const items = [
   {
     id: 2,
     category: "dresses",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/dress2.jpg",
     title: "Blue Dress",
     price: "$120",
     description:
@@ -21,7 +21,7 @@ const items = [
   {
     id: 3,
     category: "dresses",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/dress3.jpg",
     title: "Blue Dress",
     price: "$110",
     description:
@@ -30,7 +30,7 @@ const items = [
   {
     id: 4,
     category: "dresses",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/dress4.jpg",
     title: "Blue Dress",
     price: "$90",
     description:
@@ -39,7 +39,7 @@ const items = [
   {
     id: 5,
     category: "dresses",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/dress5.jpg",
     title: "Blue Dress",
     price: "$140",
     description:
@@ -48,7 +48,7 @@ const items = [
   {
     id: 6,
     category: "dresses",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/dress6.jpg",
     title: "Blue Dress",
     price: "$70",
     description:
@@ -57,7 +57,7 @@ const items = [
   {
     id: 7,
     category: "Jewellery",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/Jewellery1.jpg",
     title: "Blue Dress",
     price: "$100",
     description:
@@ -66,7 +66,7 @@ const items = [
   {
     id: 8,
     category: "Jewellery",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/Jewellery2.jpg",
     title: "Blue Dress",
     price: "$150",
     description:
@@ -75,7 +75,7 @@ const items = [
   {
     id: 9,
     category: "Jewellery",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/Jewellery3.jpg",
     title: "Blue Dress",
     price: "$160",
     description:
@@ -84,7 +84,7 @@ const items = [
   {
     id: 10,
     category: "Jewellery",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/Jewellery4.jpg",
     title: "Blue Dress",
     price: "$100",
     description:
@@ -93,7 +93,7 @@ const items = [
   {
     id: 11,
     category: "Jewellery",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/Jewellery5.jpg",
     title: "Blue Dress",
     price: "$170",
     description:
@@ -102,7 +102,7 @@ const items = [
   {
     id: 12,
     category: "Jewellery",
-    src: "./image/Banner Girl.jpg",
+    src: "./image/Jewellery6.jpg",
     title: "Blue Dress",
     price: "$150",
     description:
