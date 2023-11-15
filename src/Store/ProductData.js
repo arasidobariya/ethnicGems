@@ -1,4 +1,3 @@
-import { Store } from "@mui/icons-material";
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 const items = [
   {
@@ -111,24 +110,24 @@ const items = [
   },
 ];
 
-const initialProductDataState = { items: { items } };
-const productDataSlice = createSlice({
-  name: "ProductList",
-  initialState: initialProductDataState,
-  reducers: {
-    dresses(state) {
-      state.items.filter((item) => item.category === "dresses");
-    },
-    jewellery(state) {
-      state.items.filter((item) => item.category === "Jewellery");
-    },
-  },
-});
+// const initialProductDataState = { items: { items } };
+// const productDataSlice = createSlice({
+//   name: "ProductList",
+//   initialState: initialProductDataState,
+//   reducers: {
+//     dresses(state) {
+//       state.items.filter((item) => item.category === "dresses");
+//     },
+//     jewellery(state) {
+//       state.items.filter((item) => item.category === "Jewellery");
+//     },
+//   },
+// });
 
-const store = configureStore({
-  reducer: productDataSlice.reducer,
-});
+// const store = configureStore({
+//   reducer: productDataSlice.reducer,
+// });
 
-export const productDataActions = productDataSlice.actions;
+// export const productDataActions = productDataSlice.actions;
 
-export default store();
+// export default store();

@@ -5,16 +5,19 @@ import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 import StickyFooter from "./components/Footer";
 import ProductDetail from "./components/ProductDetail";
+import Checkout from "./components/checkout/Checkout";
+
 function App() {
   return (
     <div className="body">
-      <Header />
+      {/* <Header />
       <ProductDetail/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products/:id" element={<ProductList />} />
       </Routes>
-      <StickyFooter />
+      <StickyFooter /> */}
+      <Checkout />
     </div>
   );
 }
