@@ -3,7 +3,7 @@ const ProductData = [
     id: 1,
     category: "dresses",
     src: "../images/dress1.jpg",
-    title: "Blue Dress",
+    title: "Dream",
     price: "$100",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi. Lorem ipsum dolor sitamet consectetur adipisicing elit. Quaerat placeat similiquedicta nulla praesentium deserunt. Corporis repellendus delenitidolores eligendi.",
@@ -12,7 +12,7 @@ const ProductData = [
     id: 2,
     category: "dresses",
     src: "../images/dress2.jpg",
-    title: "Blue Dress",
+    title: "Shine",
     price: "$120",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi. Lorem ipsum dolor sitamet consectetur adipisicing elit. Quaerat placeat similiquedicta nulla praesentium deserunt. Corporis repellendus delenitidolores eligendi.",
@@ -21,7 +21,7 @@ const ProductData = [
     id: 3,
     category: "dresses",
     src: "../images/dress3.jpg",
-    title: "Blue Dress",
+    title: "Tikko",
     price: "$110",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi. Lorem ipsum dolor sitamet consectetur adipisicing elit. Quaerat placeat similiquedicta nulla praesentium deserunt. Corporis repellendus delenitidolores eligendi.",

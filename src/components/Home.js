@@ -10,6 +10,7 @@ import {
 import DarkButton from "../Styles/darkButton";
 import { Link } from "react-router-dom";
 import StyledNavLink from "../Styles/NavLink";
+import BannerGirl from "../images/BannerGirl.jpg";
 function Home() {
   const products = [
     {
@@ -114,7 +115,7 @@ function Home() {
             <CardMedia
               component="img"
               style={{ maxHeight: "450px" }}
-              image="../images/Banner Girl.jpg"
+              image={BannerGirl}
               alt="Ethnic Dress"
             />
           </Grid>
