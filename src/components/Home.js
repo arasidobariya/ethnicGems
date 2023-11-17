@@ -10,7 +10,7 @@ import {
 import DarkButton from "../Styles/darkButton";
 import { Link } from "react-router-dom";
 import StyledNavLink from "../Styles/NavLink";
-import BannerGirl from "../images/BannerGirl.jpg";
+
 function Home() {
   const products = [
     {
@@ -26,19 +26,19 @@ function Home() {
         },
         {
           id: 2,
-          src: "./image/Banner Girl.jpg",
+          src: "../image/Banner Girl.jpg",
           title: "Green Dress",
           description: "Made with Pure Cotton",
         },
         {
           id: 3,
-          src: "./image/Banner Girl.jpg",
+          src: "../image/Banner Girl.jpg",
           title: "Pista Dress",
           description: "Semi-Silk Fabric",
         },
         {
           id: 4,
-          src: "./image/Banner Girl.jpg",
+          src: "../image/Banner Girl.jpg",
           title: "Pista Dress",
           description: "Made with Pure Silk",
         },
@@ -51,25 +51,25 @@ function Home() {
       items: [
         {
           id: 1,
-          src: "./image/Banner Girl.jpg",
+          src: "../image/Banner Girl.jpg",
           title: "Blue Dress",
           description: "Made with Pure Silk",
         },
         {
           id: 2,
-          src: "./image/Banner Girl.jpg",
+          src: "../image/Banner Girl.jpg",
           title: "Green Dress",
           description: "Made with Pure Cotton",
         },
         {
           id: 3,
-          src: "./image/Banner Girl.jpg",
+          src: "../image/Banner Girl.jpg",
           title: "Pista Dress",
           description: "Semi-Silk Fabric",
         },
         {
           id: 4,
-          src: "./image/Banner Girl.jpg",
+          src: "../image/Banner Girl.jpg",
           title: "Pista Dress",
           description: "Made with Pure Silk",
         },
@@ -115,7 +115,7 @@ function Home() {
             <CardMedia
               component="img"
               style={{ maxHeight: "450px" }}
-              image={BannerGirl}
+              image="./images/BannerGirl.jpg"
               alt="Ethnic Dress"
             />
           </Grid>
