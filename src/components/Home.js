@@ -10,6 +10,7 @@ import {
 import DarkButton from "../Styles/darkButton";
 import { Link } from "react-router-dom";
 import StyledNavLink from "../Styles/NavLink";
+import getProductData from "./ProductData";
 
 function Home() {
   const products = [
@@ -17,63 +18,13 @@ function Home() {
       id: "p1",
       category: "Ethnic Dresses",
       path: "/products/dresses",
-      items: [
-        {
-          id: 1,
-          src: "./image/Banner Girl.jpg",
-          title: "Blue Dress",
-          description: "Made with Pure Silk",
-        },
-        {
-          id: 2,
-          src: "../image/Banner Girl.jpg",
-          title: "Green Dress",
-          description: "Made with Pure Cotton",
-        },
-        {
-          id: 3,
-          src: "../image/Banner Girl.jpg",
-          title: "Pista Dress",
-          description: "Semi-Silk Fabric",
-        },
-        {
-          id: 4,
-          src: "../image/Banner Girl.jpg",
-          title: "Pista Dress",
-          description: "Made with Pure Silk",
-        },
-      ],
+      items: getProductData("dresses", true),
     },
     {
       id: "p2",
       category: "Ethnic Jewellery",
       path: "/products/Jewellery",
-      items: [
-        {
-          id: 1,
-          src: "../image/Banner Girl.jpg",
-          title: "Blue Dress",
-          description: "Made with Pure Silk",
-        },
-        {
-          id: 2,
-          src: "../image/Banner Girl.jpg",
-          title: "Green Dress",
-          description: "Made with Pure Cotton",
-        },
-        {
-          id: 3,
-          src: "../image/Banner Girl.jpg",
-          title: "Pista Dress",
-          description: "Semi-Silk Fabric",
-        },
-        {
-          id: 4,
-          src: "../image/Banner Girl.jpg",
-          title: "Pista Dress",
-          description: "Made with Pure Silk",
-        },
-      ],
+      items: getProductData("Jewellery", true),
     },
   ];
 
@@ -171,9 +122,7 @@ function Home() {
                         </Grid>
                         <Grid item sx={{ margin: 2 }}>
                           <Typography variant="h5">{item.title}</Typography>
-                          <Typography variant="body2">
-                            {item.description}
-                          </Typography>
+                          <Typography variant="body2">{item.price}</Typography>
                         </Grid>
                       </Paper>
                     </Grid>

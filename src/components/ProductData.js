@@ -216,4 +216,23 @@ const ProductData = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat placeat similique dicta nulla praesentium deserunt. Corporis repellendus deleniti dolores eligendi. Lorem ipsum dolor sitamet consectetur adipisicing elit. Quaerat placeat similiquedicta nulla praesentium deserunt. Corporis repellendus delenitidolores eligendi.",
   },
 ];
-export default ProductData;
+
+const getProductData = (category = "ALL", onlyBest4Items = false) => {
+  if (category === "ALL") {
+    return ProductData;
+  } else {
+    if (onlyBest4Items) {
+      return getBest4Items(category);
+    } else {
+      return ProductData.filter((item) => item.category === category);
+    }
+  }
+};
+
+const getBest4Items = (category) => {
+  return ProductData
+      .filter((item) => item.category === category)
+      .slice(0, 4)
+};
+
+export default getProductData;
