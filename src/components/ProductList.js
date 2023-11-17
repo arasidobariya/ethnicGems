@@ -6,10 +6,12 @@ import getProductData from "./ProductData";
 function ProductList() {
   const param = useParams();
 
+  const imageClickHandler = () => {};
+
   return (
     <Box sx={{ margin: 5 }}>
       <Grid container spacing={5}>
-        {getProductData(param.id).map((item) => {
+        {getProductData(param.category).map((item) => {
           return (
             <Grid
               item
@@ -30,6 +32,7 @@ function ProductList() {
                     width="200px"
                     src={item.src}
                     alt={item.title}
+                    onClick={imageClickHandler}
                   ></img>
                 </Grid>
                 <Grid item sx={{ margin: 2 }}>

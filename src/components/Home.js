@@ -17,13 +17,13 @@ function Home() {
     {
       id: "p1",
       category: "Ethnic Dresses",
-      path: "/products/dresses",
+      path: "/categories/dresses",
       items: getProductData("dresses", true),
     },
     {
       id: "p2",
       category: "Ethnic Jewellery",
-      path: "/products/Jewellery",
+      path: "/categories/Jewellery",
       items: getProductData("Jewellery", true),
     },
   ];
@@ -58,7 +58,7 @@ function Home() {
             </CardContent>
             <Box sx={{ textAlign: "center", mt: 2, p: 1 }}>
               <DarkButton variant="contained">
-                <StyledNavLink to="/products/dresses">Shop now </StyledNavLink>
+                <StyledNavLink to="/categories/dresses">Shop now</StyledNavLink>
               </DarkButton>
             </Box>
           </Grid>

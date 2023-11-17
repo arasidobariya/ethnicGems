@@ -8,7 +8,7 @@ import Select from "@mui/material/Select";
 import { useState } from "react";
 import DarkButton from "../Styles/darkButton";
 
-function ProductDetail() {
+function ProductDetail(props) {
   const [size, setSize] = useState("");
 
   const handleChange = (event) => {
