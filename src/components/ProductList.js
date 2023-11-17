@@ -27,9 +27,10 @@ function ProductList() {
                 <Paper variant="outlined" sx={{ maxWidth: "500px" }}>
                   <Grid item>
                     <img
-                       src={item.src}
+                      height="200px"
+                      width="200px"
+                      src={item.src}
                       alt={item.title}
-                     
                     ></img>
                   </Grid>
                   <Grid item sx={{ margin: 2 }}>

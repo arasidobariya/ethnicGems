@@ -114,7 +114,7 @@ function Home() {
             <CardMedia
               component="img"
               style={{ maxHeight: "450px" }}
-              image="./image/Banner Girl.jpg"
+              image="../images/Banner Girl.jpg"
               alt="Ethnic Dress"
             />
           </Grid>
