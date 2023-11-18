@@ -24,6 +24,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
 import StyledNavLink from "../Styles/NavLink";
+import StyledBadge from "../Styles/Badge";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -84,8 +85,12 @@ function Header() {
                   ))}
               </Grid>
 
-              <Grid item md={0.5} mt={0.7}>
-                <ShoppingCartIcon size="large" />
+              <Grid item md={0.5}>
+                <IconButton aria-label="cart">
+                  <StyledBadge badgeContent={4} color="secondary">
+                    <ShoppingCartIcon />
+                  </StyledBadge>
+                </IconButton>
               </Grid>
             </Grid>
           )}
@@ -102,13 +107,17 @@ function Header() {
                 <MenuIcon />
               </IconButton>
               <Grid container>
-                <Grid item xs={11.5}>
+                <Grid item xs={11}>
                   <StyledNavLink to="/">
                     <Typography variant="h5">Ethnic Gems</Typography>
                   </StyledNavLink>{" "}
                 </Grid>
-                <Grid item xs={0.5} mt={0.7}>
-                  <ShoppingCartIcon size="large" />
+                <Grid item xs={1}>
+                  <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={4} color="secondary">
+                      <ShoppingCartIcon />
+                    </StyledBadge>
+                  </IconButton>
                 </Grid>
               </Grid>
             </>
