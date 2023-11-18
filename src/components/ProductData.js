@@ -230,9 +230,16 @@ const getProductData = (category = "ALL", onlyBest4Items = false) => {
 };
 
 const getBest4Items = (category) => {
-  return ProductData
-      .filter((item) => item.category === category)
-      .slice(0, 4)
+  return ProductData.filter((item) => item.category === category).slice(0, 4);
 };
 
-export default getProductData;
+const getProductDetail = (itemId) => {
+  return ProductData.find((item) => item.id === parseInt(itemId));
+};
+
+const eCommerceApi = {
+  getProductData: getProductData,
+  getProductDetail: getProductDetail,
+};
+
+export default eCommerceApi;

@@ -1,17 +1,17 @@
 import { Grid, Box, Paper, Typography } from "@mui/material";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import StyledLink from "../Styles/Link";
 
-import getProductData from "./ProductData";
+import eCommerceApi from "./ProductData";
 
 function ProductList() {
   const param = useParams();
 
-  const imageClickHandler = () => {};
-
   return (
     <Box sx={{ margin: 5 }}>
       <Grid container spacing={5}>
-        {getProductData(param.category).map((item) => {
+        {eCommerceApi.getProductData(param.category).map((item) => {
           return (
             <Grid
               item
@@ -27,16 +27,19 @@ function ProductList() {
             >
               <Paper variant="outlined" sx={{ maxWidth: "500px" }}>
                 <Grid item>
-                  <img
-                    height="200px"
-                    width="200px"
-                    src={item.src}
-                    alt={item.title}
-                    onClick={imageClickHandler}
-                  ></img>
+                  <Link to={"/products/" + item.id}>
+                    <img
+                      height="200px"
+                      width="200px"
+                      src={item.src}
+                      alt={item.title}
+                    ></img>
+                  </Link>
                 </Grid>
                 <Grid item sx={{ margin: 2 }}>
-                  <Typography variant="h5">{item.title}</Typography>
+                  <StyledLink to={"/products/" + item.id}>
+                    <Typography variant="h5">{item.title}</Typography>{" "}
+                  </StyledLink>
                   <Typography variant="body2">{item.price}</Typography>
                 </Grid>
 
