@@ -34,7 +34,7 @@ function Home() {
       <Card
         sx={{
           display: "flex",
-          margin: 5,
+          margin: 2,
         }}
       >
         <Grid container>

@@ -30,10 +30,7 @@ function ProductDetail() {
         >
           <ArrowBackIcon sx={{ px: 1 }}></ArrowBackIcon>
           <StyledLink to={"/categories/" + item.category}>
-            {" "}
-            <Typography sx={{ fontWeight: "bold" }}>
-              Back to Shop
-            </Typography>{" "}
+            <Typography sx={{ fontWeight: "bold" }}>Back to Shop</Typography>{" "}
           </StyledLink>
         </Box>
         <Paper
@@ -45,7 +42,7 @@ function ProductDetail() {
         >
           {}
           <Grid container spacing={1}>
-            <Grid item xs={5}>
+            <Grid item xs={12} sm={5}>
               <img
                 src={item.src}
                 height="450px"
@@ -54,14 +51,17 @@ function ProductDetail() {
               />
             </Grid>
 
-            <Grid item xs={7}>
+            <Grid item xs={12} sm={7}>
               <Paper variant="outlined" sx={{ p: 5 }}>
                 <Typography variant="h4">{item.title}</Typography>
                 <Typography variant="body2" sx={{ my: 3 }}>
                   {item.description}
                 </Typography>
                 <Box>
-                  <FormControl sx={{ my: 1, minWidth: 200 }} size="small">
+                  <FormControl
+                    sx={{ my: 1, minWidth: 100, maxWidth: 200 }}
+                    size="small"
+                  >
                     <InputLabel>Select Size</InputLabel>
                     <Select
                       value={size}
