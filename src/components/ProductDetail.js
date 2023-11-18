@@ -9,11 +9,13 @@ import { useState } from "react";
 import DarkButton from "../Styles/darkButton";
 import eCommerceApi from "./ProductData";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import StyledLink from "../Styles/Link";
 
 function ProductDetail() {
   const param = useParams();
   const [size, setSize] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setSize(event.target.value);
@@ -29,8 +31,13 @@ function ProductDetail() {
           }}
         >
           <ArrowBackIcon sx={{ px: 1 }}></ArrowBackIcon>
-          <StyledLink to={"/categories/" + item.category}>
-            <Typography sx={{ fontWeight: "bold" }}>Back to Shop</Typography>{" "}
+          <StyledLink>
+            <Typography
+              sx={{ fontWeight: "bold" }}
+              onClick={() => navigate(-1)}
+            >
+              Back to Shop
+            </Typography>
           </StyledLink>
         </Box>
         <Paper
