@@ -24,7 +24,7 @@ function ProductDetail() {
       <Box sx={{ margin: 5 }} variant="outlined">
         <Box
           sx={{
-            margin: 5,
+            margin: 2,
             display: "flex",
           }}
         >
@@ -42,7 +42,7 @@ function ProductDetail() {
         >
           {}
           <Grid container spacing={1}>
-            <Grid item xs={12} sm={5}>
+            <Grid item xs={12} md={5}>
               <img
                 src={item.src}
                 height="450px"
@@ -51,7 +51,7 @@ function ProductDetail() {
               />
             </Grid>
 
-            <Grid item xs={12} sm={7}>
+            <Grid item xs={12} md={7}>
               <Paper variant="outlined" sx={{ p: 5 }}>
                 <Typography variant="h4">{item.title}</Typography>
                 <Typography variant="body2" sx={{ my: 3 }}>
