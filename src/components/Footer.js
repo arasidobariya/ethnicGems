@@ -40,7 +40,7 @@ export default function StickyFooter() {
               <Copyright />
             </Grid>
             <Grid item xs={3}>
-              <Typography variant="body2">
+              <Typography variant="body2" sx={{ justifyContent: "right" }}>
                 Fork this Project
                 <Link
                   color="inherit"

@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./components/ProductList";
 import RootLayout from "./RootLayout";
 import ProductDetail from "./components/ProductDetail";
+import AddToCart from "./components/AddToCart";
 
 function App() {
   const router = createBrowserRouter([
@@ -26,7 +27,8 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return <AddToCart/>
+  // return <RouterProvider router={router} />;
 }
 
 export default App;
