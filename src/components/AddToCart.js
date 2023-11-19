@@ -37,10 +37,10 @@ function AddToCart() {
     },
   ];
   return (
-    <Container sx={{ mt: "30px" }}>
+    <Container sx={{ my: 5 }}>
       <Grid container spacing={15}>
-        <Grid item xs={12} sm={8}>
-          <Typography gutterBottom variant="h4" sx={{ my: 3 }}>
+        <Grid item xs={12} sm={10} md={8}>
+          <Typography gutterBottom variant="h4">
             Your Bag
           </Typography>
           {data.map((item) => {
@@ -59,18 +59,24 @@ function AddToCart() {
                   <Box component="div" sx={{ flex: "0.6" }}>
                     <CardContent>
                       <Stack
-                        spacing={{ xs: 3, sm: 20 }}
+                        spacing={{ xs: 5, md: 10 }}
                         direction="row"
                         useFlexGap
                         flexWrap="wrap"
                       >
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography
+                          gutterBottom
+                          variant="h6"
+                          component="div"
+                          sx={{ flex: 1 }}
+                        >
                           {item.title}
                         </Typography>
                         <Typography
                           gutterBottom
-                          variant="body1"
+                          variant="h6"
                           component="div"
+                          sx={{ flex: 0.5 }}
                         >
                           {item.price}
                         </Typography>
@@ -101,13 +107,13 @@ function AddToCart() {
           })}
         </Grid>
 
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <DarkButton
             fullWidth
             xs={12}
             variant="contained"
             size="large"
-            sx={{ mt: 10, justifyContent: "left" }}
+            sx={{ justifyContent: "left" }}
             endIcon={<DoubleArrowIcon sx={{ ml: "5" }} />}
           >
             Checkout

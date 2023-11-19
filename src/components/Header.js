@@ -25,6 +25,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
 import StyledNavLink from "../Styles/NavLink";
 import StyledBadge from "../Styles/Badge";
+import { useNavigate } from "react-router-dom";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -59,6 +60,10 @@ function Header() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const navigate = useNavigate();
+  const cartHandler = () => {
+    navigate("/AddToCart");
+  };
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="sticky">
@@ -88,7 +93,7 @@ function Header() {
               <Grid item md={0.5}>
                 <IconButton aria-label="cart">
                   <StyledBadge badgeContent={4} color="secondary">
-                    <ShoppingCartIcon />
+                    <ShoppingCartIcon onClick={cartHandler} />
                   </StyledBadge>
                 </IconButton>
               </Grid>
@@ -115,7 +120,7 @@ function Header() {
                 <Grid item xs={1}>
                   <IconButton aria-label="cart">
                     <StyledBadge badgeContent={4} color="secondary">
-                      <ShoppingCartIcon />
+                      <ShoppingCartIcon onClick={cartHandler} />
                     </StyledBadge>
                   </IconButton>
                 </Grid>

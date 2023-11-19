@@ -24,11 +24,15 @@ function App() {
           path: "/products/:itemId",
           element: <ProductDetail />,
         },
+        {
+          path: "/AddToCart",
+          element: <AddToCart />,
+        },
       ],
     },
   ]);
-  return <AddToCart/>
-  // return <RouterProvider router={router} />;
+  // return <AddToCart/>
+  return <RouterProvider router={router} />;
 }
 
 export default App;
