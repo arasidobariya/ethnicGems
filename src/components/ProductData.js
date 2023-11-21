@@ -238,8 +238,8 @@ const getProductDetail = (itemId) => {
 };
 
 const eCommerceApi = {
-  getProductData: getProductData,
-  getProductDetail: getProductDetail,
+  getProductData,
+  getProductDetail,
 };
 
 export default eCommerceApi;
