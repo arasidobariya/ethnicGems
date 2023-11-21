@@ -6,21 +6,16 @@ import {
   Grid,
   Container,
   Box,
-  MenuItem,
-  Select,
-  FormControl,
-  InputLabel,
 } from "@mui/material";
 
 import Stack from "@mui/material/Stack";
-
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import DarkButton from "../Styles/darkButton";
-
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 function AddToCart() {
-  let quantities = Array.from(Array(10).fill(), (_, i) => i + 1);
-
   const data = [
     {
       id: 1,
@@ -37,6 +32,7 @@ function AddToCart() {
       size: "S",
     },
   ];
+  const cartItems = useSelector((state) => state.cart.items);
   return (
     <Container sx={{ my: 5 }}>
       <Grid container spacing={15}>
@@ -44,13 +40,13 @@ function AddToCart() {
           <Typography gutterBottom variant="h4">
             Your Bag
           </Typography>
-          {data.map((item) => {
+          {cartItems.map((item) => {
             return (
               <Card sx={{ mt: 2 }}>
                 <Grid container>
-                  <Box component="div" sx={{ flex: "0.4" }}>
+                  <Box component="div" sx={{ flex: "0.4" }} key={item.id}>
                     <CardMedia
-                      sx={{ width: "100" }}
+                      sx={{ width: "50" }}
                       component="img"
                       height="200"
                       image={item.src}
@@ -58,7 +54,7 @@ function AddToCart() {
                     ></CardMedia>
                   </Box>
                   <Box component="div" sx={{ flex: "0.6" }}>
-                    <CardContent>
+                    <CardContent sx={{ p: 3 }}>
                       <Stack
                         spacing={{ xs: 5, md: 10 }}
                         direction="row"
@@ -83,23 +79,14 @@ function AddToCart() {
                         </Typography>
                       </Stack>
                       <Typography gutterBottom variant="body1" component="div">
-                        Size: {item.size}
+                        Size: M
                       </Typography>
 
-                      <Box sx={{ mt: 2, mb: 0 }}>
-                        <FormControl sx={{ Width: 160 }}>
-                          <InputLabel>Qty</InputLabel>
-                          <Select label="quantities" value={quantities}>
-                            {quantities.map((quantity) => {
-                              return (
-                                <MenuItem key={quantity} value={quantity}>
-                                  {quantity}
-                                </MenuItem>
-                              );
-                            })}
-                          </Select>
-                        </FormControl>
-                      </Box>
+                      <Stack direction="row" spacing={2} sx={{ mt: 3 }}>
+                        <RemoveCircleIcon />
+                        <Typography variant="body2">1</Typography>
+                        <AddCircleIcon />
+                      </Stack>
                     </CardContent>
                   </Box>
                 </Grid>
