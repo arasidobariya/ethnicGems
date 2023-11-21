@@ -17,6 +17,7 @@ import Stack from "@mui/material/Stack";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import DarkButton from "../Styles/darkButton";
 
+
 function AddToCart() {
   let quantities = Array.from(Array(10).fill(), (_, i) => i + 1);
 

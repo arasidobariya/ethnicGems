@@ -2,12 +2,24 @@ import { Grid, Box, Paper, Typography } from "@mui/material";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import StyledLink from "../Styles/Link";
-
+import { cartActions } from "../Store/cartSlice";
 import eCommerceApi from "./ProductData";
+import { useDispatch } from "react-redux";
 
 function ProductList() {
   const param = useParams();
+  const dispatch = useDispatch();
 
+  const addToCartHandler = (id, price, title, description) => {
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        price,
+        title,
+        description,
+      })
+    );
+  };
   return (
     <Box sx={{ margin: 5 }}>
       <Grid container spacing={5}>
@@ -52,6 +64,7 @@ function ProductList() {
                     backgroundColor: "black",
                     padding: "0.5rem",
                   }}
+                  onClick={addToCartHandler}
                 >
                   Add to Cart
                 </Typography>

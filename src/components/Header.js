@@ -26,6 +26,7 @@ import { useState } from "react";
 import StyledNavLink from "../Styles/NavLink";
 import StyledBadge from "../Styles/Badge";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -47,6 +48,7 @@ const darkTheme = createTheme({
 function Header() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery("(max-width:900px)");
+  const cartQuantity = useSelector((state) => state.cart.totalQuantity);
   const category = [
     { id: "c1", title: "Dresses", path: "/categories/dresses" },
     { id: "c2", title: "Jewellery", path: "/categories/Jewellery" },
@@ -92,7 +94,7 @@ function Header() {
 
               <Grid item md={0.5}>
                 <IconButton aria-label="cart">
-                  <StyledBadge badgeContent={4} color="secondary">
+                  <StyledBadge badgeContent={cartQuantity} color="secondary">
                     <ShoppingCartIcon onClick={cartHandler} />
                   </StyledBadge>
                 </IconButton>
@@ -119,7 +121,7 @@ function Header() {
                 </Grid>
                 <Grid item xs={1}>
                   <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={4} color="secondary">
+                    <StyledBadge badgeContent={cartQuantity} color="secondary">
                       <ShoppingCartIcon onClick={cartHandler} />
                     </StyledBadge>
                   </IconButton>
