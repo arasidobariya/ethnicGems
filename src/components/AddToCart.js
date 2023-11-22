@@ -1,37 +1,12 @@
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  Grid,
-  Container,
-  Box,
-} from "@mui/material";
+import { Typography, Grid, Container } from "@mui/material";
 
-import Stack from "@mui/material/Stack";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import DarkButton from "../Styles/darkButton";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import CartItem from "./CartItem";
 
 function AddToCart() {
-  const data = [
-    {
-      id: 1,
-      src: "../images/Jewellery11.jpg",
-      title: "Abc",
-      price: "$100",
-      size: "M",
-    },
-    {
-      id: 2,
-      src: "../images/dress1.jpg",
-      title: "xyz",
-      price: "$120",
-      size: "S",
-    },
-  ];
   const cartItems = useSelector((state) => state.cart.items);
   return (
     <Container sx={{ my: 5 }}>
@@ -40,59 +15,20 @@ function AddToCart() {
           <Typography gutterBottom variant="h4">
             Your Bag
           </Typography>
-          {cartItems.map((item) => {
-            return (
-              <Card sx={{ mt: 2 }}>
-                <Grid container>
-                  <Box component="div" sx={{ flex: "0.4" }} key={item.id}>
-                    <CardMedia
-                      sx={{ width: "50" }}
-                      component="img"
-                      height="200"
-                      image={item.src}
-                      alt="image"
-                    ></CardMedia>
-                  </Box>
-                  <Box component="div" sx={{ flex: "0.6" }}>
-                    <CardContent sx={{ p: 3 }}>
-                      <Stack
-                        spacing={{ xs: 5, md: 10 }}
-                        direction="row"
-                        useFlexGap
-                        flexWrap="wrap"
-                      >
-                        <Typography
-                          gutterBottom
-                          variant="h6"
-                          component="div"
-                          sx={{ flex: 1 }}
-                        >
-                          {item.title}
-                        </Typography>
-                        <Typography
-                          gutterBottom
-                          variant="h6"
-                          component="div"
-                          sx={{ flex: 0.5 }}
-                        >
-                          {item.price}
-                        </Typography>
-                      </Stack>
-                      <Typography gutterBottom variant="body1" component="div">
-                        Size: M
-                      </Typography>
 
-                      <Stack direction="row" spacing={2} sx={{ mt: 3 }}>
-                        <RemoveCircleIcon />
-                        <Typography variant="body2">1</Typography>
-                        <AddCircleIcon />
-                      </Stack>
-                    </CardContent>
-                  </Box>
-                </Grid>
-              </Card>
-            );
-          })}
+          {cartItems.map((item) => (
+            <CartItem
+              key={item.id}
+              item={{
+                id: item.id,
+                title: item.name,
+                quantity: item.quantity,
+                total: item.totalPrice,
+                price: item.price,
+                src: item.src,
+              }}
+            />
+          ))}
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>

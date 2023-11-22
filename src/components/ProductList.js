@@ -1,22 +1,23 @@
 import { Grid, Box, Paper, Typography } from "@mui/material";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import StyledLink from "../Styles/Link";
 import { cartActions } from "../Store/cartSlice";
 import eCommerceApi from "./ProductData";
 import { useDispatch } from "react-redux";
+import StyledNavLink from "../Styles/NavLink";
 
 function ProductList() {
   const param = useParams();
   const dispatch = useDispatch();
 
-  const addToCartHandler = (id, price, title, description) => {
+  const addToCartHandler = (id, price, title, src) => {
     dispatch(
       cartActions.addItemToCart({
         id,
         price,
         title,
-        description,
+        src,
       })
     );
   };
@@ -52,22 +53,31 @@ function ProductList() {
                   <StyledLink to={"/products/" + item.id}>
                     <Typography variant="h5">{item.title}</Typography>{" "}
                   </StyledLink>
-                  <Typography variant="body2">{item.price}</Typography>
+                  <Typography variant="body2">${item.price}</Typography>
                 </Grid>
 
-                <Typography
-                  sx={{
-                    color: "white",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    alignItem: "center",
-                    backgroundColor: "black",
-                    padding: "0.5rem",
-                  }}
-                  onClick={addToCartHandler}
-                >
-                  Add to Cart
-                </Typography>
+                <StyledNavLink>
+                  <Typography
+                    sx={{
+                      color: "white",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      alignItem: "center",
+                      backgroundColor: "black",
+                      padding: "0.5rem",
+                    }}
+                    onClick={() =>
+                      addToCartHandler(
+                        item.id,
+                        item.price,
+                        item.title,
+                        item.src
+                      )
+                    }
+                  >
+                    Add to Cart
+                  </Typography>{" "}
+                </StyledNavLink>
               </Paper>
             </Grid>
           );
