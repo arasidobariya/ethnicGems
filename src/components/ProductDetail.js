@@ -11,16 +11,30 @@ import eCommerceApi from "./ProductData";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import StyledLink from "../Styles/Link";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../Store/cartSlice";
 
 function ProductDetail() {
   const param = useParams();
   const [size, setSize] = useState("");
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const handleChange = (event) => {
     setSize(event.target.value);
   };
   const item = eCommerceApi.getProductDetail(param.itemId);
+
+  const addToCartHandler = (id, price, title, src) => {
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        price,
+        title,
+        src,
+      })
+    );
+  };
+
   return (
     item && (
       <Box sx={{ margin: 5 }} variant="outlined">
@@ -84,7 +98,14 @@ function ProductDetail() {
                 <Typography variant="h4" sx={{ my: 3 }}>
                   {item.price}
                 </Typography>
-                <DarkButton sx={{ mt: 2 }}>Add to Cart</DarkButton>
+                <DarkButton
+                  sx={{ mt: 2 }}
+                  onClick={() =>
+                    addToCartHandler(item.id, item.price, item.title, item.src)
+                  }
+                >
+                  Add to Cart
+                </DarkButton>
               </Paper>
             </Grid>
           </Grid>

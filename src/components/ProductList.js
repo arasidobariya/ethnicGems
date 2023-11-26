@@ -1,6 +1,6 @@
 import { Grid, Box, Paper, Typography } from "@mui/material";
 import { useParams } from "react-router";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import StyledLink from "../Styles/Link";
 import { cartActions } from "../Store/cartSlice";
 import eCommerceApi from "./ProductData";
@@ -76,7 +76,7 @@ function ProductList() {
                     }
                   >
                     Add to Cart
-                  </Typography>{" "}
+                  </Typography>
                 </StyledNavLink>
               </Paper>
             </Grid>
