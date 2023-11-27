@@ -9,67 +9,23 @@ import {
 } from "@mui/material";
 import DarkButton from "../Styles/darkButton";
 import { Link } from "react-router-dom";
+import StyledNavLink from "../Styles/NavLink";
+import eCommerceApi from "./ProductData";
+import StyledLink from "../Styles/Link";
+
 function Home() {
   const products = [
     {
       id: "p1",
       category: "Ethnic Dresses",
-      items: [
-        {
-          id: 1,
-          src: "./image/Banner Girl.jpg",
-          title: "Blue Dress",
-          description: "Made with Pure Silk",
-        },
-        {
-          id: 2,
-          src: "./image/Banner Girl.jpg",
-          title: "Green Dress",
-          description: "Made with Pure Cotton",
-        },
-        {
-          id: 3,
-          src: "./image/Banner Girl.jpg",
-          title: "Pista Dress",
-          description: "Semi-Silk Fabric",
-        },
-        {
-          id: 4,
-          src: "./image/Banner Girl.jpg",
-          title: "Pista Dress",
-          description: "Made with Pure Silk",
-        },
-      ],
+      path: "/categories/dresses",
+      items: eCommerceApi.getProductData("dresses", true),
     },
     {
       id: "p2",
       category: "Ethnic Jewellery",
-      items: [
-        {
-          id: 1,
-          src: "./image/Banner Girl.jpg",
-          title: "Blue Dress",
-          description: "Made with Pure Silk",
-        },
-        {
-          id: 2,
-          src: "./image/Banner Girl.jpg",
-          title: "Green Dress",
-          description: "Made with Pure Cotton",
-        },
-        {
-          id: 3,
-          src: "./image/Banner Girl.jpg",
-          title: "Pista Dress",
-          description: "Semi-Silk Fabric",
-        },
-        {
-          id: 4,
-          src: "./image/Banner Girl.jpg",
-          title: "Pista Dress",
-          description: "Made with Pure Silk",
-        },
-      ],
+      path: "/categories/Jewellery",
+      items: eCommerceApi.getProductData("Jewellery", true),
     },
   ];
 
@@ -78,7 +34,7 @@ function Home() {
       <Card
         sx={{
           display: "flex",
-          margin: 5,
+          margin: 2,
         }}
       >
         <Grid container>
@@ -96,20 +52,22 @@ function Home() {
                 component="div"
                 variant="h5"
                 textAlign={"center"}
-                sx={{ fontFamily: "Lato" }}
+                sx={{ fontFamily: "sans-serif" }}
               >
                 "Explore your true style with this Ethnic Dress"
               </Typography>
             </CardContent>
             <Box sx={{ textAlign: "center", mt: 2, p: 1 }}>
-              <DarkButton variant="contained">Shop now</DarkButton>
+              <DarkButton variant="contained">
+                <StyledNavLink to="/categories/dresses">Shop now</StyledNavLink>
+              </DarkButton>
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>
             <CardMedia
               component="img"
               style={{ maxHeight: "450px" }}
-              image="./image/Banner Girl.jpg"
+              image="./images/BannerGirl.jpg"
               alt="Ethnic Dress"
             />
           </Grid>
@@ -126,7 +84,7 @@ function Home() {
                 </Typography>
               </Grid>
               <Grid item xs={6} md={4}>
-                <Link to="/">
+                <Link to={product.path}>
                   <Typography
                     variant="body1"
                     textAlign={"right"}
@@ -148,32 +106,35 @@ function Home() {
                       direction="column"
                       xs={12}
                       sm={6}
-                      md={4}
+                      md={3}
                       key={item.id}
-                      spacing={3}
+                      spacing={1}
                       justifyContent={"center"}
                       alignItems={"center"}
                     >
                       <Paper variant="outlined" sx={{ maxWidth: "500px" }}>
                         <Grid item>
-                          <img
-                            height="200px"
-                            alt={item.title}
-                            src={item.src}
-                          ></img>
+                          <StyledLink to={"/products/" + item.id}>
+                            <img
+                              height="200px"
+                              width="200px"
+                              alt={item.title}
+                              src={item.src}
+                            ></img>
+                          </StyledLink>
                         </Grid>
                         <Grid item sx={{ margin: 2 }}>
-                          <Typography variant="h5">{item.title}</Typography>
-                          <Typography variant="body2">
-                            {item.description}
-                          </Typography>
+                          <StyledLink to={"/products/" + item.id}>
+                            <Typography variant="h5">{item.title}</Typography>
+                          </StyledLink>
+                          <Typography variant="body2">{item.price}</Typography>
                         </Grid>
                       </Paper>
                     </Grid>
                   );
                 })}
               </Grid>
-            </Box>{" "}
+            </Box>
           </Box>
         );
       })}

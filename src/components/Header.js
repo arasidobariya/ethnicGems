@@ -24,6 +24,9 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState } from "react";
 import StyledNavLink from "../Styles/NavLink";
+import StyledBadge from "../Styles/Badge";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -45,9 +48,10 @@ const darkTheme = createTheme({
 function Header() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery("(max-width:900px)");
+  const cartQuantity = useSelector((state) => state.cart.totalQuantity);
   const category = [
-    { id: "c1", title: "Dresses", path: "/productList/:{id}" },
-    { id: "c2", title: "Jewellery", path: "/productList/:{id}" },
+    { id: "c1", title: "Dresses", path: "/categories/dresses" },
+    { id: "c2", title: "Jewellery", path: "/categories/Jewellery" },
   ];
   const [open, setOpen] = useState(false);
 
@@ -58,6 +62,10 @@ function Header() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const navigate = useNavigate();
+  const cartHandler = () => {
+    navigate("/AddToCart");
+  };
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="sticky">
@@ -66,7 +74,9 @@ function Header() {
             <Grid container spacing={1}>
               <Grid item md={2.5}>
                 <StyledNavLink to="/">
-                  <Typography variant="h5">Ethnic Gems</Typography>
+                  <Typography variant="h5" sx={{ fontFamily: "Roboto" }}>
+                    Ethnic Gems
+                  </Typography>
                 </StyledNavLink>
               </Grid>
               <Grid item container md={9}>
@@ -82,8 +92,12 @@ function Header() {
                   ))}
               </Grid>
 
-              <Grid item md={0.5} mt={0.7}>
-                <ShoppingCartIcon size="large" />
+              <Grid item md={0.5}>
+                <IconButton aria-label="cart">
+                  <StyledBadge badgeContent={cartQuantity} color="secondary">
+                    <ShoppingCartIcon onClick={cartHandler} />
+                  </StyledBadge>
+                </IconButton>
               </Grid>
             </Grid>
           )}
@@ -99,9 +113,20 @@ function Header() {
               >
                 <MenuIcon />
               </IconButton>
-              <StyledNavLink to="/">
-                <Typography variant="h5">Ethnic Gems</Typography>
-              </StyledNavLink>
+              <Grid container>
+                <Grid item xs={11}>
+                  <StyledNavLink to="/">
+                    <Typography variant="h5">Ethnic Gems</Typography>
+                  </StyledNavLink>{" "}
+                </Grid>
+                <Grid item xs={1}>
+                  <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={cartQuantity} color="secondary">
+                      <ShoppingCartIcon onClick={cartHandler} />
+                    </StyledBadge>
+                  </IconButton>
+                </Grid>
+              </Grid>
             </>
           )}
         </Toolbar>
