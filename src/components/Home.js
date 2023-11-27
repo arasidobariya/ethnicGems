@@ -10,21 +10,22 @@ import {
 import DarkButton from "../Styles/darkButton";
 import { Link } from "react-router-dom";
 import StyledNavLink from "../Styles/NavLink";
-import getProductData from "./ProductData";
+import eCommerceApi from "./ProductData";
+import StyledLink from "../Styles/Link";
 
 function Home() {
   const products = [
     {
       id: "p1",
       category: "Ethnic Dresses",
-      path: "/products/dresses",
-      items: getProductData("dresses", true),
+      path: "/categories/dresses",
+      items: eCommerceApi.getProductData("dresses", true),
     },
     {
       id: "p2",
       category: "Ethnic Jewellery",
-      path: "/products/Jewellery",
-      items: getProductData("Jewellery", true),
+      path: "/categories/Jewellery",
+      items: eCommerceApi.getProductData("Jewellery", true),
     },
   ];
 
@@ -33,7 +34,7 @@ function Home() {
       <Card
         sx={{
           display: "flex",
-          margin: 5,
+          margin: 2,
         }}
       >
         <Grid container>
@@ -58,7 +59,7 @@ function Home() {
             </CardContent>
             <Box sx={{ textAlign: "center", mt: 2, p: 1 }}>
               <DarkButton variant="contained">
-                <StyledNavLink to="/products/dresses">Shop now </StyledNavLink>
+                <StyledNavLink to="/categories/dresses">Shop now</StyledNavLink>
               </DarkButton>
             </Box>
           </Grid>
@@ -113,15 +114,19 @@ function Home() {
                     >
                       <Paper variant="outlined" sx={{ maxWidth: "500px" }}>
                         <Grid item>
-                          <img
-                            height="200px"
-                            width="200px"
-                            alt={item.title}
-                            src={item.src}
-                          ></img>
+                          <StyledLink to={"/products/" + item.id}>
+                            <img
+                              height="200px"
+                              width="200px"
+                              alt={item.title}
+                              src={item.src}
+                            ></img>
+                          </StyledLink>
                         </Grid>
                         <Grid item sx={{ margin: 2 }}>
-                          <Typography variant="h5">{item.title}</Typography>
+                          <StyledLink to={"/products/" + item.id}>
+                            <Typography variant="h5">{item.title}</Typography>
+                          </StyledLink>
                           <Typography variant="body2">{item.price}</Typography>
                         </Grid>
                       </Paper>

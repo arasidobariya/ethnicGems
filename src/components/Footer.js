@@ -1,6 +1,7 @@
 import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import { Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
@@ -8,10 +9,8 @@ import Link from "@mui/material/Link";
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>
+      {" © "}
+      EthnicGems
       {new Date().getFullYear()}
     </Typography>
   );
@@ -35,11 +34,23 @@ export default function StickyFooter() {
               : theme.palette.grey[800],
         }}
       >
-        <Container maxWidth="sm">
-          <Typography variant="body1">
-            My sticky footer can be found here.
-          </Typography>
-          <Copyright />
+        <Container>
+          <Grid container>
+            <Grid item xs={9}>
+              <Copyright />
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="body2" sx={{ justifyContent: "right" }}>
+                Fork this Project
+                <Link
+                  color="inherit"
+                  href="https://github.com/arasidobariya/ethnicGems"
+                >
+                  Here
+                </Link>
+              </Typography>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
     </ThemeProvider>
