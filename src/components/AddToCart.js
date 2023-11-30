@@ -6,6 +6,7 @@ import DarkButton from "../Styles/darkButton";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import CartItem from "./CartItem";
 
+
 function AddToCart() {
   const cartItems = useSelector((state) => state.cart.items);
   return (
