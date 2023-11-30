@@ -2,7 +2,7 @@ import { Typography, Grid, Container } from "@mui/material";
 
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import DarkButton from "../Styles/darkButton";
-
+import StyledNavLink from "../Styles/NavLink";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import CartItem from "./CartItem";
 
@@ -32,16 +32,18 @@ function AddToCart() {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <DarkButton
-            fullWidth
-            xs={12}
-            variant="contained"
-            size="large"
-            sx={{ justifyContent: "left" }}
-            endIcon={<DoubleArrowIcon sx={{ ml: "5" }} />}
-          >
-            Checkout
-          </DarkButton>
+          <StyledNavLink to="/SignInOrGuestCheckout">
+            <DarkButton
+              fullWidth
+              xs={12}
+              variant="contained"
+              size="large"
+              sx={{ justifyContent: "left" }}
+              endIcon={<DoubleArrowIcon sx={{ ml: "5" }} />}
+            >
+              Checkout
+            </DarkButton>
+          </StyledNavLink>
         </Grid>
       </Grid>
     </Container>

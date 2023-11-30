@@ -64,7 +64,11 @@ function Header() {
   };
   const navigate = useNavigate();
   const cartHandler = () => {
-    navigate("/AddToCart");
+    if (cartQuantity === 0) {
+      alert("Your bag is currently empty!! Please add items!!");
+    } else {
+      navigate("/AddToCart");
+    }
   };
   return (
     <ThemeProvider theme={darkTheme}>
