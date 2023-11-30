@@ -5,7 +5,8 @@ import ProductList from "./components/ProductList";
 import RootLayout from "./RootLayout";
 import ProductDetail from "./components/ProductDetail";
 import AddToCart from "./components/AddToCart";
-import Guest from "./components/Guest";
+
+import CheckoutMain from "./components/CheckoutMain";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,7 +33,7 @@ function App() {
       ],
     },
   ]);
-  return <Guest />;
+  return <CheckoutMain />;
   // return <RouterProvider router={router} />;
 }
 
