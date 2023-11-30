@@ -7,6 +7,7 @@ import ProductDetail from "./components/ProductDetail";
 import AddToCart from "./components/AddToCart";
 
 import CheckoutMain from "./components/CheckoutMain";
+import Checkout from "./components/checkout/Checkout";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,11 +31,19 @@ function App() {
           path: "/AddToCart",
           element: <AddToCart />,
         },
+        {
+          path: "/SignInOrGuestCheckout",
+          element: <CheckoutMain />,
+        },
+        {
+          path:'/checkout',
+          element:<Checkout/>
+        }
       ],
     },
   ]);
-  return <CheckoutMain />;
-  // return <RouterProvider router={router} />;
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

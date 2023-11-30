@@ -1,7 +1,7 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-
+import StyledNavLink from "../Styles/NavLink";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FaceIcon from "@mui/icons-material/Face";
@@ -27,14 +27,16 @@ function Guest() {
         <Typography variant="body1" sx={{ mt: 3, mb: 2 }}>
           Proceed and setup your login later...
         </Typography>
-        <DarkButton
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Continue as a Guest
-        </DarkButton>
+        <StyledNavLink to="/checkout">
+          <DarkButton
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Continue as a Guest
+          </DarkButton>
+        </StyledNavLink>
       </Box>
     </Container>
   );
