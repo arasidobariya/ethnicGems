@@ -5,7 +5,7 @@ import ProductList from "./components/ProductList";
 import RootLayout from "./RootLayout";
 import ProductDetail from "./components/ProductDetail";
 import AddToCart from "./components/AddToCart";
-
+import SignUp from "./components/Signup";
 import CheckoutMain from "./components/CheckoutMain";
 import Checkout from "./components/checkout/Checkout";
 
@@ -36,9 +36,13 @@ function App() {
           element: <CheckoutMain />,
         },
         {
-          path:'/checkout',
-          element:<Checkout/>
-        }
+          path: "/checkout",
+          element: <Checkout />,
+        },
+        {
+          path: "/signup",
+          element: <SignUp />,
+        },
       ],
     },
   ]);

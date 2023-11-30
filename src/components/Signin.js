@@ -1,17 +1,16 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-
 import DarkButton from "../Styles/darkButton";
+import { Link } from "react-router-dom";
 
 export default function SignIn() {
   const handleSubmit = (event) => {
@@ -74,8 +73,8 @@ export default function SignIn() {
           </DarkButton>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link to="/signup" variant="body2">
+                Don't have an account? Sign Up
               </Link>
             </Grid>
           </Grid>
