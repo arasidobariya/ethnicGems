@@ -16,6 +16,7 @@ const payments = [
 
 export default function Review() {
   const products = useSelector((state) => state.cart.items);
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -24,14 +25,14 @@ export default function Review() {
       <List disablePadding>
         {products.map((product) => (
           <ListItem key={product.id} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={product.name} secondary={product.name} />
-            <Typography variant="body2">{product.price}</Typography>
+            <ListItemText primary={product.name} secondary={product.quantity} />
+            <Typography variant="body2">$ {product.totalPrice}</Typography>
           </ListItem>
         ))}
         <ListItem sx={{ py: 1, px: 0 }}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            $34.06
+            ${}
           </Typography>
         </ListItem>
       </List>

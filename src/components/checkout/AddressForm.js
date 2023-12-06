@@ -4,8 +4,32 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-
+import { useDispatch } from "react-redux";
+import { infoActions } from "../../Store/infoSlice";
 export default function AddressForm() {
+  const dispatch = useDispatch();
+
+  const infoHandler = (
+    firstName,
+    lastName,
+    address,
+    city,
+    state,
+    zip,
+    country
+  ) => {
+    dispatch(
+      infoActions.addInfoToReview({
+        firstName,
+        lastName,
+        address,
+        city,
+        state,
+        zip,
+        country,
+      })
+    );
+  };
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
