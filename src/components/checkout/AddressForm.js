@@ -9,27 +9,7 @@ import { infoActions } from "../../Store/infoSlice";
 export default function AddressForm() {
   const dispatch = useDispatch();
 
-  const infoHandler = (
-    firstName,
-    lastName,
-    address,
-    city,
-    state,
-    zip,
-    country
-  ) => {
-    dispatch(
-      infoActions.addInfoToReview({
-        firstName,
-        lastName,
-        address,
-        city,
-        state,
-        zip,
-        country,
-      })
-    );
-  };
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
